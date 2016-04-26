@@ -1,5 +1,5 @@
 {
-  "name": "aframe-react-boilerplate",
+  "name": "celestial-dance",
   "version": "1.0.0",
   "description": "Celestial Body simulation using A-Frame (VR) with React.",
   "dependencies": {
@@ -19,23 +19,23 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/ngokevin/aframe-react-boilerplate.git"
+    "url": "git+https://github.com/elliotaplant/celestial-dance.git"
   },
   "keywords": [
     "aframe",
     "react",
     "vr",
-    "boilerplate",
+    "gravity",
     "a-frame",
     "mozvr",
     "webvr"
   ],
-  "author": "Kevin Ngo <kngo@mozilla.com>",
+  "author": "Elliot Plant <elliotaplant@gmail.com>",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/ngokevin/aframe-react-boilerplate/issues"
+    "url": "https://github.com/elliotaplant/celestial-dance/issues"
   },
-  "homepage": "https://github.com/ngokevin/aframe-react-boilerplate#readme",
+  "homepage": "https://github.com/elliotaplant/celestial-dance#readme",
   "devDependencies": {
     "babel": "^6.3.13",
     "babel-core": "^6.3.15",
