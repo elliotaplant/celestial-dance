@@ -34,11 +34,11 @@ class SpaceScene extends React.Component {
         <Entity light={{type: 'directional', intensity: 0.2}} position={[-1, 1, 0]}/>
         <Entity light={{type: 'directional', intensity: 1}} position={[1, 1, 0]}/>
 
-        <Entity geometry="primitive: box" material={{color: this.state.color}}
+        <a-box width="4" height="10" depth="2" color={'#FFF'}
                 onClick={this.changeColor}
                 position="0 0 -5">
           <Animation attribute="rotation" dur="5000" repeat="indefinite" to="0 360 360"/>
-        </Entity>
+        </a-box>
       </Scene>
     );
   }
