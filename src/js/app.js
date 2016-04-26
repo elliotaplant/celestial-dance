@@ -31,7 +31,7 @@ class SpaceScene extends React.Component {
         <Sky/>
 
         <Entity light={{type: 'ambient', color: '#888'}}/>
-        <Entity light={{type: 'directional', intensity: 0.5}} position={[-1, 1, 0]}/>
+        <Entity light={{type: 'directional', intensity: 0.2}} position={[-1, 1, 0]}/>
         <Entity light={{type: 'directional', intensity: 1}} position={[1, 1, 0]}/>
 
         <Entity geometry="primitive: box" material={{color: this.state.color}}
