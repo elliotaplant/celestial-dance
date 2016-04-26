@@ -8,7 +8,7 @@ import Camera from './components/Camera';
 import Cursor from './components/Cursor';
 import Sky from './components/Sky';
 
-class BoilerplateScene extends React.Component {
+class SpaceScene extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -44,4 +44,4 @@ class BoilerplateScene extends React.Component {
   }
 }
 
-ReactDOM.render(<BoilerplateScene/>, document.querySelector('.scene-container'));
+ReactDOM.render(<SpaceScene/>, document.querySelector('.scene-container'));
