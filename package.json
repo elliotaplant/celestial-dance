@@ -1,6 +1,6 @@
 {
-  "name": "aframe-boilerplate",
-  "description": "Boilerplate for creating WebVR scenes using A-Frame",
+  "name": "celestial-dance",
+  "description": "Celestial Body simulation using A-Frame and React",
   "version": "0.0.0",
   "license": "MIT",
   "scripts": {
@@ -16,6 +16,7 @@
     "aframe",
     "aframe-example",
     "aframe-scene",
-    "aframe-boilerplate"
+    "aframe-boilerplate",
+    "aframe-react"
   ]
 }
