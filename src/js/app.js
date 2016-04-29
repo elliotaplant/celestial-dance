@@ -57,6 +57,10 @@ class SpaceScene extends React.Component {
           radius='3'
           position={this.state.marsPos.join(' ')}/>
         <Body />
+        <Body />
+        <Body />
+        <Body />
+        <Body />
         <a-camera id="player" position="0 1.8 0"></a-camera>
 
         <a-sky src="#outer-space"></a-sky>
@@ -69,15 +73,23 @@ class Body extends React.Component {
   constructor(props) {
     super(props);
     this.src = props.src || '#cow';
-    this.mass = props.mass || 50;
-    const position = new THREE.Vector3(rand(-5, 5), rand(-5, 5), rand(-30, -5))
-    this.state = { position };
+    this.mass = props.mass || rand(2, 1000);
+    this.interval = 50;
+    const position = new THREE.Vector3(rand(-10, 10), rand(-10, 10), rand(-30, -10));
+    const velocity = new THREE.Vector3(0, rand(-0.01, 0.01), rand(-0.01, 0.01));
+    this.state = { position, velocity };
+    setInterval(this.updatePosition.bind(this), this.interval);
+  }
+  updatePosition() {
+    this.setState({
+      position: this.state.position.addScaledVector(this.state.velocity, this.interval)
+    });
   }
   render() {
     return (
       <a-sphere id='earth'
         src="#cow"
-        radius={Math.log2(this.mass)}
+        radius={Math.log2(this.mass)/4}
         position={this.state.position.toArray().join(' ')}
       />
     )
