@@ -30,12 +30,6 @@ class SpaceScene extends React.Component {
       marsPos: [5, 9, -20],
       earthPos: [0, 0, -10]
     };
-    // setInterval(() => {
-    //   this.setState({
-    //     marsPos: this.state.marsPos.map(val => val+0.01),
-    //     earthPos: this.state.earthPos.map(val => val-0.01)
-    //   },100)
-    // })
   }
 
   render() {
@@ -48,14 +42,7 @@ class SpaceScene extends React.Component {
           <img id="mars-img" src="../assets/mars.png" />
         </a-assets>
 
-        <a-sphere id='earth'
-          src='#earth-img'
-          radius='4'
-          position={this.state.earthPos.join(' ')} />
-        <a-sphere id='mars'
-          src='#mars-img'
-          radius='3'
-          position={this.state.marsPos.join(' ')}/>
+
         <Body />
         <Body />
         <Body />
@@ -74,26 +61,47 @@ class Body extends React.Component {
     super(props);
     this.src = props.src || '#cow';
     this.mass = props.mass || rand(2, 1000);
-    this.interval = 50;
-    const position = new THREE.Vector3(rand(-10, 10), rand(-10, 10), rand(-30, -10));
+    this.interval = 300;
+    const oldPosition = new THREE.Vector3(rand(-10, 10), rand(-10, 10), rand(-30, -10));
     const velocity = new THREE.Vector3(0, rand(-0.01, 0.01), rand(-0.01, 0.01));
-    this.state = { position, velocity };
-    setInterval(this.updatePosition.bind(this), this.interval);
+    const newPosition = oldPosition.addScaledVector(velocity, this.interval);
+    this.state = { oldPosition, newPosition, velocity };
+    // setInterval(this.updatePosition.bind(this), this.interval);
   }
   updatePosition() {
+    console.log('ho ho ho');
+    const oldPosition = this.state.oldPosition;
+    const newPosition = oldPosition.addScaledVector(this.state.velocity, this.interval);
     this.setState({
-      position: this.state.position.addScaledVector(this.state.velocity, this.interval)
+      oldPosition: this.state.newPosition,
+      newPosition,
     });
   }
   render() {
+    // change 'from' to somehow get accurate current position.
+    // there's gotta be a better way to do animation than setInterval()
     return (
       <a-sphere id='earth'
         src="#cow"
         radius={Math.log2(this.mass)/4}
-        position={this.state.position.toArray().join(' ')}
-      />
+      >
+        <a-animation attribute="position" dur="5000"
+          from={this.state.oldPosition.toArray().join(' ')} to={this.state.newPosition.toArray().join(' ')}/>
+      </a-sphere>
     )
   }
 }
 
 ReactDOM.render(<SpaceScene/>, document.querySelector('.scene-container'));
+
+//
+// <a-sphere id='earth'
+//   src='#earth-img'
+//   radius='4'
+//   position={this.state.earthPos.join(' ')} />
+// <a-sphere id='mars'
+//   src='#mars-img'
+//   radius='3'
+//   position={this.state.marsPos.join(' ')}/>
+//
+//
