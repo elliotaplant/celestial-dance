@@ -4,6 +4,7 @@ import {Animation, Entity, Scene} from 'aframe-react';
 import React from 'react';
 import ReactDOM from 'react-dom';
 require('aframe-layout-component');
+require('aframe-template-component');
 // import Camera from './components/Camera';
 // import Cursor from './components/Cursor';
 // import Sky from './components/Sky';
@@ -23,50 +24,25 @@ class SpaceScene extends React.Component {
     });
   };
 
-  // render () {
-  //   return (
-  //     <Scene>
-  //       <Camera><Cursor/></Camera>
-  //
-  //       <Sky/>
-  //
-  //       <Entity light={{type: 'ambient', color: '#888'}}/>
-  //       <Entity light={{type: 'directional', intensity: 0.2}} position={[-1, 1, 0]}/>
-  //       <Entity light={{type: 'directional', intensity: 1}} position={[1, 1, 0]}/>
-  //
-  //       <Entity geometry="primitive: box" material={{color: "#FFF"}}
-  //               onClick={this.changeColor}
-  //               position="0 0 -5"
-  //               src="../assets/cow_texture.png">
-  //         <Animation attribute="rotation" dur="5000" repeat="indefinite" to="0 360 360"/>
-  //       </Entity>
-  //     </Scene>
-  //   );
-  // }
   render() {
     return (
-      <a-scene>
+      <Scene>
         <a-assets>
+          <img id="outer-space" src="../assets/equi-sky.png" />
           <img id="enemy-sprite" src="../assets/cow_texture.png" />
         </a-assets>
 
-        <a-entity layout="type: circle; radius: 5" position="0 0.5 0">
-          <a-image look-at="#player" src="#enemy-sprite" transparent="true"></a-image>
-          <a-image look-at="#player" src="#enemy-sprite" transparent="true"></a-image>
-          <a-image look-at="#player" src="#enemy-sprite" transparent="true"></a-image>
-          <a-image look-at="#player" src="#enemy-sprite" transparent="true"></a-image>
-          <a-image look-at="#player" src="#enemy-sprite" transparent="true"></a-image>
-          <a-image look-at="#player" src="#enemy-sprite" transparent="true"></a-image>
-          <a-image look-at="#player" src="#enemy-sprite" transparent="true"></a-image>
-          <a-image look-at="#player" src="#enemy-sprite" transparent="true"></a-image>
-          <a-image look-at="#player" src="#enemy-sprite" transparent="true"></a-image>
-          <a-image look-at="#player" src="#enemy-sprite" transparent="true"></a-image>
-        </a-entity>
+        <Entity layout="type: circle; radius: 5" position="0 0.5 0">
+          {[0,1,2,2,2,2,2,2,2,2,2].map((item, index) =>
+              <a-image key={index} look-at="#player" src="#enemy-sprite" transparent="true" />)
+          }
+          <Animation attribute="rotation" dur="5000" ease="linear" from="0 0 0" to="360 360 360" repeat="indefinite" />
+        </Entity>
 
         <a-camera id="player" position="0 1.8 0"></a-camera>
 
-        <a-sky color="#252243"></a-sky>
-      </a-scene>
+        <a-sky src="#outer-space"></a-sky>
+      </Scene>
     )
   }
 }
