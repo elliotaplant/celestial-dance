@@ -8,6 +8,8 @@ require('aframe-template-component');
 // import Camera from './components/Camera';
 // import Cursor from './components/Cursor';
 // import Sky from './components/Sky';
+const rand = (min, max) => min + Math.random()*(max - min);
+const pow = Math.pow;
 
 class Force {
   constructor(a, b) {
@@ -68,7 +70,7 @@ class Body extends React.Component {
     super(props);
     this.src = props.src || '#cow';
     this.mass = props.mass || 50;
-    const position = new THREE.Vector3(0, 0, -5)
+    const position = new THREE.Vector3(rand(-5, 5), rand(-5, 5), rand(-30, -5))
     this.state = { position };
   }
   render() {
