@@ -1,7 +1,7 @@
 import 'aframe';
 import {Animation, Entity} from 'aframe-react';
 import React from 'react';
-import { translate, rand, getNetForce } from '../Helpers/VectorHelpers';
+import { translate, rand, getNetForce, map } from '../Helpers/VectorHelpers';
 
 const backwards = new THREE.Vector3(0, 0, 0.01);
 
@@ -12,8 +12,13 @@ AFRAME.registerComponent('update', {
   },
 
   tick: function () {
-    const allDancers = this.el.sceneEl.querySelectorAll('.dancer');
-    const netForce = getNetForce(allDancers, this.el);
+    let allDancers = this.el.sceneEl.querySelectorAll('.dancer');
+    allDancers = map(allDancers,
+      dancer => ({
+        mass: +dancer.attributes.mass.value,
+        position: dancer.object3D.position,
+      }));
+    const netForce = getNetForce(allDancers, this.el.object3D.position);
     // console.log('first z position:', Math.floor(allDancers[0].object3D.position.z));
     this.data.velocity.add(backwards);
     translate(this.el.object3D, this.data.velocity);
