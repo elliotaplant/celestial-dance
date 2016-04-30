@@ -6,8 +6,13 @@ const translate = (object3D, velocity) => {
 
 const rand = (min, max) => min + Math.random()*(max - min);
 
+const getNetForce = (bodies, origin) => {
+  console.log('bodies', bodies);
+  console.log('origin', origin);
+}
 
 export {
   translate,
   rand,
+  getNetForce,
 }

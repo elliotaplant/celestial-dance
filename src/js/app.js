@@ -28,7 +28,9 @@ class SpaceScene extends React.Component {
                       material="color: green; metalness: 0.2; opacity: 0.4; roughness: 0.3"
                       projectile="speed: -10"></a-mixin>
         </a-assets>
-        {this.state.dancers.map((mass, index) => <Dancer key={index} allDancers={this.state.dancers} mass={mass}/>)}
+        {this.state.dancers.map((mass, index) => (
+          <Dancer key={index} allDancers={this.state.dancers} mass={mass} />
+        ))}
         <a-camera id="player" position="0 1.8 0"></a-camera>
         <a-sky src="#outer-space"></a-sky>
       </Scene>
