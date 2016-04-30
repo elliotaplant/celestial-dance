@@ -35,6 +35,10 @@ const map = (array, callback) => {
   return result;
 }
 
+const filterClose = (dancers, position, radius) => (
+  dancers.filter(dancer => dancer.position.distanceTo(position) > radius)
+);
+
 export {
   massToRadius,
   translate,
@@ -42,4 +46,5 @@ export {
   getNetAccel,
   map,
   vLog,
+  filterClose,
 }
