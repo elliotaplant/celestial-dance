@@ -24,7 +24,9 @@ class SpaceScene extends React.Component {
           <img id="mars-img" src="../assets/mars.png" />
         </a-assets>
         {dancerData.map((dancer, index) => (
-          <Dancer key={index} mass={dancer.mass} position={dancer.position} src={dancer.src}/>
+          <Dancer key={index} mass={dancer.mass} position={dancer.position}
+            src={dancer.src}
+          />
         ))}
         <a-camera id="player" position="0 1.8 0"></a-camera>
         <a-sky src="#outer-space"></a-sky>

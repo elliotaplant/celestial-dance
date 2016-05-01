@@ -28,14 +28,15 @@ const objToArr = obj => {
 
 const copyVector = vector => new THREE.Vector3().copy(vector);
 
+const randColor = () => {
+  let color = '#';
+  for (var i = 0; i < 3; i++) {
+    color += Math.floor(rand(0, 16)).toString(16).toUpperCase();
+  }
+  return color;
+}
+
 export {
-  massToRadius,
-  getR,
-  translate,
-  rand,
-  vLog,
-  filterClose,
-  vectorToString,
-  objToArr,
-  copyVector,
+  massToRadius, getR, translate, rand,vLog, filterClose, vectorToString,
+  objToArr, copyVector, randColor,
 }

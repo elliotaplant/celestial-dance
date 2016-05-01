@@ -30,10 +30,9 @@ AFRAME.registerComponent('step', {
         position: dancer.object3D.position,
       }));
     const netAccel = getNetAccel(thisDancer, otherDancers);
-    velocity = velocity.add(netAccel.multiplyScalar(t)); // addScaledVector doesn't work. lol
-    translate(this.el.object3D, velocity);
-    const velocityString = velocity.toArray().join(' ')
+    velocity = velocity.add(netAccel.multiplyScalar(t/100000)); // addScaledVector doesn't work. lol
     this.el.setAttribute('velocity', vectorToString(velocity));
+    translate(this.el.object3D, velocity.multiplyScalar(t/100000));
   }
 });
 
@@ -46,7 +45,7 @@ class Dancer extends React.Component {
 
   render() {
     return (
-      <a-sphere src={this.props.src} radius={massToRadius(this.mass)}
+      <a-sphere color={this.props.src} radius={massToRadius(this.mass)}
         step class='dancer' mass={this.mass}
         velocity="0 0 0"
         position={this.props.position.join(' ')}
