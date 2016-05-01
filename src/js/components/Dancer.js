@@ -30,13 +30,14 @@ AFRAME.registerComponent('step', {
         position: dancer.object3D.position,
       }));
     const allOtherDancers = filterClose(otherDancers, thisDancer.position, 2 * thisDancer.radius);
-    const netAccel = getNetAccel(thisDancer.position, allOtherDancers);
+    const netAccel = getNetAccel(thisDancer, allOtherDancers);
     velocity = velocity.add(netAccel.multiplyScalar(t)); // addScaledVector doesn't work. lol
     translate(this.el.object3D, velocity);
     const velocityString = velocity.toArray().join(' ')
     this.el.setAttribute('velocity', vectorToString(velocity));
   }
 });
+
 
 class Dancer extends React.Component {
   constructor(props) {
