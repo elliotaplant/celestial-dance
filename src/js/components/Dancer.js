@@ -14,19 +14,23 @@ AFRAME.registerComponent('step', {
   },
 
   tick: function (t) {
-    let position = this.el.object3D.position;
-    const radius = +this.el.attributes.radius.value;
+    const thisDancer = {
+      mass: +this.el.attributes.mass.value,
+      radius: +this.el.attributes.radius.value,
+      position: this.el.object3D.position,
+    }
     let velocity = new THREE.Vector3().fromArray(
       this.el.attributes.velocity.value.split(' ').map(i => +i)
     );
-    let allDancers = objToArr(this.el.sceneEl.querySelectorAll('.dancer'))
+    let otherDancers = objToArr(this.el.sceneEl.querySelectorAll('.dancer'))
       .filter(dancer => dancer !== this.el)
       .map(dancer => ({
         mass: +dancer.attributes.mass.value,
+        radius: +dancer.attributes.radius.value,
         position: dancer.object3D.position,
       }));
-    const allOtherDancers = filterClose(allDancers, position, 2*radius);
-    const netAccel = getNetAccel(position, allOtherDancers);
+    const allOtherDancers = filterClose(otherDancers, position, 2*radius);
+    const netAccel = getNetAccel(thisDancer, allOtherDancers);
     velocity = velocity.add(netAccel.multiplyScalar(t)); // addScaledVector doesn't work. lol
     translate(this.el.object3D, velocity);
     const velocityString = velocity.toArray().join(' ')
