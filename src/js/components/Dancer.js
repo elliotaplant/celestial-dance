@@ -1,8 +1,9 @@
 import 'aframe';
 import {Animation, Entity} from 'aframe-react';
 import React from 'react';
-import { translate, rand, getNetAccel, vLog, objToArr,
+import { translate, rand, vLog, objToArr,
   massToRadius, filterClose, vectorToString } from '../Helpers/VectorHelpers';
+import { getNetAccel } from '../Helpers/AccelerationLogic';
 
 const backwards = new THREE.Vector3(0, 0, 0.01);
 const TIME_STEP = 1;
