@@ -3,7 +3,7 @@ import 'babel-polyfill';
 import {Animation, Entity, Scene} from 'aframe-react';
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { rand } from './Helpers/VectorHelpers';
+import { rand } from './Helpers/Helpers';
 require('aframe-layout-component');
 require('aframe-template-component');
 import Dancer from './components/Dancer';
@@ -24,7 +24,7 @@ class SpaceScene extends React.Component {
           <img id="mars-img" src="../assets/mars.png" />
         </a-assets>
         {dancerData.map((dancer, index) => (
-          <Dancer key={index} mass={dancer.mass} position={dancer.position}/>
+          <Dancer key={index} mass={dancer.mass} position={dancer.position} src={dancer.src}/>
         ))}
         <a-camera id="player" position="0 1.8 0"></a-camera>
         <a-sky src="#outer-space"></a-sky>

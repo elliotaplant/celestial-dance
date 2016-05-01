@@ -2,7 +2,7 @@ import 'aframe';
 import {Animation, Entity} from 'aframe-react';
 import React from 'react';
 import { translate, rand, vLog, objToArr,
-  massToRadius, filterClose, vectorToString } from '../Helpers/VectorHelpers';
+  massToRadius, filterClose, vectorToString } from '../Helpers/Helpers';
 import { getNetAccel } from '../Helpers/AccelerationLogic';
 
 const backwards = new THREE.Vector3(0, 0, 0.01);
@@ -29,8 +29,9 @@ AFRAME.registerComponent('step', {
         radius: +dancer.attributes.radius.value,
         position: dancer.object3D.position,
       }));
-    const allOtherDancers = filterClose(otherDancers, thisDancer.position, 2 * thisDancer.radius);
-    const netAccel = getNetAccel(thisDancer, allOtherDancers);
+    // const allOtherDancers = filterClose(otherDancers, thisDancer.position, 2 * thisDancer.radius);
+    // const netAccel = getNetAccel(thisDancer, allOtherDancers);
+    const netAccel = getNetAccel(thisDancer, otherDancers);
     velocity = velocity.add(netAccel.multiplyScalar(t)); // addScaledVector doesn't work. lol
     translate(this.el.object3D, velocity);
     const velocityString = velocity.toArray().join(' ')
@@ -47,7 +48,7 @@ class Dancer extends React.Component {
 
   render() {
     return (
-      <a-sphere src="../assets/earth.jpg" radius={massToRadius(this.mass)}
+      <a-sphere src={this.props.src} radius={massToRadius(this.mass)}
         step class='dancer' mass={this.mass}
         velocity="0 0 0"
         position={this.props.position.join(' ')}
