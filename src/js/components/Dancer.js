@@ -1,7 +1,7 @@
 import 'aframe';
 import {Animation, Entity} from 'aframe-react';
 import React from 'react';
-import { translate, rand, getNetAccel, map, vLog,
+import { translate, rand, getNetAccel, vLog, objToArr,
   massToRadius, filterClose, vectorToString } from '../Helpers/VectorHelpers';
 
 const backwards = new THREE.Vector3(0, 0, 0.01);
@@ -18,9 +18,9 @@ AFRAME.registerComponent('step', {
     let velocity = new THREE.Vector3().fromArray(
       this.el.attributes.velocity.value.split(' ').map(i => +i)
     );
-    let allDancers = this.el.sceneEl.querySelectorAll('.dancer');
-    allDancers = map(allDancers,
-      dancer => ({
+    let allDancers = objToArr(this.el.sceneEl.querySelectorAll('.dancer'))
+      .filter(dancer => dancer !== this.el)
+      .map(dancer => ({
         mass: +dancer.attributes.mass.value,
         position: dancer.object3D.position,
       }));

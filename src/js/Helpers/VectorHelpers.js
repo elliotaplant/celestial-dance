@@ -1,4 +1,4 @@
-const GRAVITY = 0.00010;
+const GRAVITY = 0.00000010;
 
 const massToRadius = mass => Math.log2(mass)/10;
 
@@ -10,13 +10,14 @@ const translate = (object3D, velocity) => {
 
 const rand = (min, max) => min + Math.random()*(max - min);
 
-const vLog = (v, msg) => console.log(JSON.stringify(v.toArray()), msg);
+const vLog = (v, msg) => console.log(msg, JSON.stringify(v.toArray()));
 
 const getAccel = (origin, body) => {
   const rMag2 = body.position.distanceToSquared(origin);
   let rNorm = new THREE.Vector3();
-  rNorm.subVectors(origin, body.position).normalize();
-  return rNorm.multiplyScalar(GRAVITY * body.mass / rMag2);
+  rNorm.subVectors(body.position, origin).normalize();
+  const result = rNorm.multiplyScalar(GRAVITY * body.mass / rMag2);
+  return result;
 };
 
 const getNetAccel = (origin, bodies) => {
@@ -24,27 +25,31 @@ const getNetAccel = (origin, bodies) => {
   for (var i = 0; i < bodies.length; i++) {
     netAccel.add(getAccel(origin, bodies[i]))
   }
+  // vLog(netAccel, 'my net accel')
   return netAccel;
 };
-
-const map = (array, callback) => {
-  const result = [];
-  for (var i = 0; i < array.length; i++) {
-    result.push(callback(array[i], i, array));
-  }
-  return result;
-}
 
 const filterClose = (dancers, position, radius) => (
   dancers.filter(dancer => dancer.position.distanceTo(position) > radius)
 );
+
+const vectorToString = vector => {
+  return vector.toArray().map(component => +component.toString().slice(0,15)).join(' ')
+};
+
+const objToArr = obj => {
+  const result = [];
+  for (var i = 0; i < obj.length; i++) { result.push(obj[i]); }
+  return result;
+};
 
 export {
   massToRadius,
   translate,
   rand,
   getNetAccel,
-  map,
   vLog,
   filterClose,
+  vectorToString,
+  objToArr,
 }
