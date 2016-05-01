@@ -1,5 +1,5 @@
 const GRAVITY = 1e-4;
-const PLANET_SPRING = 1e5;
+const PLANET_SPRING = 1e2;
 const MIN_DISTANCE = 0.001;
 
 export {
