@@ -1,5 +1,3 @@
-const GRAVITY = 0.00000010;
-
 const massToRadius = mass => Math.log2(mass)/10;
 
 const translate = (object3D, velocity) => {
@@ -30,7 +28,6 @@ export {
   massToRadius,
   translate,
   rand,
-  getNetAccel,
   vLog,
   filterClose,
   vectorToString,
