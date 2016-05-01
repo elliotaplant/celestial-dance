@@ -15,7 +15,6 @@ class SpaceScene extends React.Component {
   }
 
   render() {
-    console.log('dancerData', dancerData);
     return (
       <Scene>
         <a-assets>
