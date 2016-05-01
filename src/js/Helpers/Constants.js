@@ -1,1 +1,7 @@
 const GRAVITY = 0.00000010;
+const PLANET_SPRING = 1;
+
+export {
+  GRAVITY,
+  PLANET_SPRING,
+}
