@@ -1,4 +1,4 @@
-const GRAVITY = 0.00000010;
+const GRAVITY = 0.0000010;
 const PLANET_SPRING = 1;
 
 export {
