@@ -6,7 +6,6 @@ const getGravityAccel = (vR, mass) => {
   const rMag2 = vR.lengthSq();
   const rNorm = vR.normalize();
   const accel = rNorm.multiplyScalar(GRAVITY * mass / rMag2);
-  console.log('accel', accel);
   return accel;
 };
 
@@ -17,7 +16,6 @@ const getGravityAccel = (vR, mass) => {
 const getNetAccel = (originBody, otherBodies) => {
   let netAccel = new THREE.Vector3();
   let vR;
-  console.log('original position:', originBody.position);
   for (var i = 0; i < otherBodies.length; i++) {
     vR = getR(originBody, otherBodies[i]);
     netAccel.add(getGravityAccel(vR, otherBodies[i].mass))
