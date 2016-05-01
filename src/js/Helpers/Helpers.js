@@ -10,7 +10,7 @@ const getR = (body1, body2) => new THREE.Vector3().subVectors(body2.position, bo
 
 const rand = (min, max) => min + Math.random()*(max - min);
 
-const vLog = (v, msg) => console.log(msg, JSON.stringify(v.toArray()));
+const vLog = (msg, v) => console.log(msg, JSON.stringify(v.toArray()));
 
 const filterClose = (dancers, position, radius) => (
   dancers.filter(dancer => dancer.position.distanceTo(position) > radius)
@@ -26,6 +26,8 @@ const objToArr = obj => {
   return result;
 };
 
+const copyVector = vector => new THREE.Vector3().copy(vector);
+
 export {
   massToRadius,
   getR,
@@ -35,4 +37,5 @@ export {
   filterClose,
   vectorToString,
   objToArr,
+  copyVector,
 }

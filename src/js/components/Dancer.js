@@ -29,8 +29,6 @@ AFRAME.registerComponent('step', {
         radius: +dancer.attributes.radius.value,
         position: dancer.object3D.position,
       }));
-    // const allOtherDancers = filterClose(otherDancers, thisDancer.position, 2 * thisDancer.radius);
-    // const netAccel = getNetAccel(thisDancer, allOtherDancers);
     const netAccel = getNetAccel(thisDancer, otherDancers);
     velocity = velocity.add(netAccel.multiplyScalar(t)); // addScaledVector doesn't work. lol
     translate(this.el.object3D, velocity);

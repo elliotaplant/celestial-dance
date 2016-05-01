@@ -1,6 +1,6 @@
-const GRAVITY = 0.0000000010;
-const PLANET_SPRING = 1000000000;
-const MIN_DISTANCE = 1;
+const GRAVITY = 0.000000010;
+const PLANET_SPRING = 0.01;
+const MIN_DISTANCE = 0.01;
 
 export {
   GRAVITY,
