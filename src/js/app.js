@@ -25,7 +25,7 @@ class SpaceScene extends React.Component {
         </a-assets>
         {dancerData.map((dancer, index) => (
           <Dancer key={index} mass={dancer.mass} position={dancer.position}
-            src={dancer.src}
+            color={dancer.color} velocity={dancer.velocity}
           />
         ))}
         <a-camera id="player" position="0 1.8 0"></a-camera>

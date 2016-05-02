@@ -44,7 +44,6 @@ class Force {
 }
 
 const move = (dancer, dt) => {
-  // console.log('velocity', dancer.velocity);
   const velocity = new THREE.Vector3().copy(dancer.velocity);
   translate(dancer.object3D, velocity.multiplyScalar(dt));
 }
@@ -57,9 +56,10 @@ AFRAME.registerComponent('step', {
   init: function () {
     const dancers = objToArr(this.el.sceneEl.querySelectorAll('.dancer'));
     dancers.forEach((dancer, index) => {
-      dancer.velocity = new THREE.Vector3();
-      dancer.mass = +this.el.attributes.mass.value;
-      dancer.radius = +this.el.attributes.radius.value;
+      const velocityArr = dancer.attributes.velocity.value.split(' ').map(i => +i);
+      dancer.velocity = new THREE.Vector3().fromArray(velocityArr);
+      dancer.mass = +dancer.attributes.mass.value;
+      dancer.radius = +dancer.attributes.radius.value;
     });
     for (var i = 0; i < dancers.length; i++) {
       for (var j = i + 1; j < dancers.length; j++) {

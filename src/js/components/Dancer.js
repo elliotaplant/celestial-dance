@@ -15,9 +15,9 @@ class Dancer extends React.Component {
 
   render() {
     return (
-      <a-sphere color={this.props.src} radius={massToRadius(this.mass)}
+      <a-sphere color={this.props.color} radius={massToRadius(this.mass)}
         class='dancer' mass={this.mass} step
-        velocity="0 0 0"
+        velocity={this.props.velocity.join(' ')}
         position={this.props.position.join(' ')}
       />
     );
