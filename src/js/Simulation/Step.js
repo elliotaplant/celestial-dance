@@ -24,11 +24,12 @@ class Force {
       )
     );
     if (distance < this.body1.radius + this.body2.radius) {
-      this.vector.add(
-        displacement2.multiplyScalar(
-          PLANET_SPRING * (1 - (this.body1.radius + this.body2.radius) / distance)
-        )
-      );
+      console.log('collision!');
+      // this.vector.add(
+      //   displacement2.multiplyScalar(
+      //     PLANET_SPRING * (1 - (this.body1.radius + this.body2.radius) / distance)
+      //   )
+      // );
     }
     return this;
   }
@@ -36,7 +37,6 @@ class Force {
   apply(dt) {
     const accel1 = new THREE.Vector3().copy(this.vector).multiplyScalar(dt/this.body1.mass);
     const accel2 = new THREE.Vector3().copy(this.vector).multiplyScalar(-1*dt/this.body2.mass);
-    console.log('accel:', accel1);
     this.body1.velocity.add(accel1);
     this.body2.velocity.add(accel2);
     return this;
