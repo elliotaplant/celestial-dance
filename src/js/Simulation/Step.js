@@ -16,14 +16,21 @@ class Force {
     // get the displacement vector
     const displacement = getR(this.body1, this.body2);
     const distance = Math.max(displacement.length(), MIN_DISTANCE);
-    this.vector.copy(displacement.multiplyScalar(GRAVITY * mass / MATH.pow(distance, 3)));
+    // F_g = G * m1 * m2 * Rvector / r^3
+    this.vector.copy(
+      displacement.multiplyScalar(
+        GRAVITY * body1.mass * body2.mass / MATH.pow(distance, 3)
+      )
+    );
   }
 
-  apply(body, dt) {
+  apply(dt) {
     // a = F/m
-    const acceleration = new THREE.Vector3().copy(this.vector).multiplyScalar(1/body.mass);
+    const accel1 = new THREE.Vector3().copy(this.vector).multiplyScalar(1/body1.mass);
+    const accel2 = new THREE.Vector3().copy(this.vector).multiplyScalar(-1/body2.mass);
     // body.velocity += a*dt
-    body.velocity.add(acceleration, dt);
+    body1.velocity.add(accel1, dt);
+    body2.velocity.add(accel2, dt);
   }
 
   applyOpposite(body, dt) {
@@ -31,23 +38,46 @@ class Force {
   }
 }
 
-const interact = (body1, body2) => {
-  const force = new Force(body1, body2);
-  force.apply(body1);
-  force.applyOpposite(body2);
-}
+// const interact = (body1, body2) => {
+//   const force = new Force(body1, body2);
+//   force.apply(body1);
+//   force.applyOpposite(body2);
+// }
 
 AFRAME.registerComponent('step', {
-  tick: function (t) {
+  schema: {
+    forces: { default: [] },
+  },
+
+  init: function () {
     const dancers = this.el.sceneEl.querySelectorAll('.dancer');
+    // make forces between each pair of dancers
+    dancers.forEach((dancer, index) => {
+      dancer.velocity = new THREE.Vector3();
+      dancer.mass = +this.el.attributes.radius.value;
+      dancer.id = index;
+    });
     for (var i = 0; i < dancers.length; i++) {
-      for (var j = i; j < dancers.length; j++) {
-        interact(dancers[i], dancers[j]);
+      for (var j = i + 1; j < dancers.length; j++) {
+        this.data.forces.push(new Force(dancers[i], dancers[j]));
       }
     }
+    // give each dancer a velocity, mass
+  },
+
+  tick: function (t) {
+    for (var i = 0; i < window.forces.length; i++) {
+      this.data.forces[i].update();
+    }
+    const dancers = this.el.sceneEl.querySelectorAll('.dancer');
+    // for (var i = 0; i < dancers.length; i++) {
+    //   for (var j = i + 1; j < dancers.length; j++) {
+    //     interact(dancers[i], dancers[j]);
+    //   }
+    // }
     // separate loop to update positions after all force calcs are done
     for (var i = 0; i < dancers.length; i++) {
-      move(dancers[i])
+      move(dancers[i]);
     }
 
     // const thisDancer = {
