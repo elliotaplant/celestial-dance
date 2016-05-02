@@ -37,7 +37,11 @@ const randColor = () => {
   return color;
 }
 
+const merge = () => {
+  console.log('mergine!');
+}
+
 export {
   massToRadius, getR, translate, rand,vLog, filterClose, vectorToString,
-  objToArr, copyVector, randColor,
+  objToArr, copyVector, randColor, merge,
 }

@@ -2,7 +2,7 @@ import 'aframe';
 import {Animation, Entity} from 'aframe-react';
 import React from 'react';
 import { translate, rand, vLog, objToArr, getR,
-  massToRadius, filterClose, vectorToString } from '../Helpers/Helpers';
+  massToRadius, merge } from '../Helpers/Helpers';
 import { getNetAccel } from '../Helpers/AccelerationLogic';
 import { GRAVITY, PLANET_SPRING, MIN_DISTANCE, TIME_SCALE } from '../Helpers/Constants';
 
@@ -24,7 +24,7 @@ class Force {
       )
     );
     if (distance < this.body1.radius + this.body2.radius) {
-      console.log('collision!');
+      merge(this.body1, this.body2);
       // this.vector.add(
       //   displacement2.multiplyScalar(
       //     PLANET_SPRING * (1 - (this.body1.radius + this.body2.radius) / distance)

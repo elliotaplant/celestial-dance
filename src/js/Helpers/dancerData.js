@@ -30,13 +30,13 @@ const dancerData = [
   ),
   makeRandDancer(),
   makeRandDancer(),
-  makeRandDancer(),
-  makeRandDancer(),
-  makeRandDancer(),
-  makeRandDancer(),
-  makeRandDancer(),
-  makeRandDancer(),
-  makeRandDancer(),
+  // makeRandDancer(),
+  // makeRandDancer(),
+  // makeRandDancer(),
+  // makeRandDancer(),
+  // makeRandDancer(),
+  // makeRandDancer(),
+  // makeRandDancer(),
 ];
 
 module.exports = dancerData;

@@ -1,5 +1,5 @@
 import { translate, rand, vLog, objToArr, getR, copyVector,
-  massToRadius, filterClose, vectorToString } from './Helpers';
+  massToRadius } from './Helpers';
 import { GRAVITY, PLANET_SPRING, MIN_DISTANCE } from './Constants';
 
 const getGravityAccel = (vR, mass) => {

@@ -2,7 +2,7 @@ import 'aframe';
 import {Animation, Entity} from 'aframe-react';
 import React from 'react';
 import { translate, rand, vLog, objToArr,
-  massToRadius, filterClose, vectorToString } from '../Helpers/Helpers';
+  massToRadius } from '../Helpers/Helpers';
 import { getNetAccel } from '../Helpers/AccelerationLogic';
 import Nothing from '../Simulation/Step'
 const backwards = new THREE.Vector3(0, 0, 0.01);
