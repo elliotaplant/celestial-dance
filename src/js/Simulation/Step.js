@@ -18,18 +18,21 @@ class Force {
     const displacement2 = getR(this.body1, this.body2);
     const distance = Math.max(displacement.length(), MIN_DISTANCE);
     // F_g = G * m1 * m2 * Rvector / r^3
-    this.vector.copy(
-      displacement.multiplyScalar(
-        GRAVITY * this.body1.mass * this.body2.mass / Math.pow(distance, 3)
-      )
-    );
-    if (distance < this.body1.radius + this.body2.radius) {
+    if (this.distance < MIN_DISTANCE) {
       merge(this.body1, this.body2);
+    } else if (distance < this.body1.radius + this.body2.radius) {
+      // bounce wit it
       // this.vector.add(
       //   displacement2.multiplyScalar(
       //     PLANET_SPRING * (1 - (this.body1.radius + this.body2.radius) / distance)
       //   )
       // );
+    } else {
+      this.vector.copy(
+        displacement.multiplyScalar(
+          GRAVITY * this.body1.mass * this.body2.mass / Math.pow(distance, 3)
+        )
+      );
     }
     return this;
   }
