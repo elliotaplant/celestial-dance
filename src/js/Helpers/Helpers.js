@@ -1,4 +1,4 @@
-const massToRadius = mass => Math.log2(mass)/10;
+const massToRadius = mass => Math.log2(mass)/4;
 
 const translate = (object3D, velocity) => {
   object3D.translateX(velocity.x);
