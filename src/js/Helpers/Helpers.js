@@ -6,7 +6,8 @@ const translate = (object3D, velocity) => {
   object3D.translateZ(velocity.z);
 }
 
-const getR = (body1, body2) => new THREE.Vector3().subVectors(body2.position, body1.position);
+const getR = (body1, body2) => new THREE.Vector3()
+  .subVectors(body2.object3D.position, body1.object3D.position);
 
 const rand = (min, max) => min + Math.random()*(max - min);
 

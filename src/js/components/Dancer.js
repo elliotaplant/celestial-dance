@@ -6,7 +6,6 @@ import { translate, rand, vLog, objToArr,
 import { getNetAccel } from '../Helpers/AccelerationLogic';
 import Nothing from '../Simulation/Step'
 const backwards = new THREE.Vector3(0, 0, 0.01);
-const TIME_STEP = 1;
 
 class Dancer extends React.Component {
   constructor(props) {
