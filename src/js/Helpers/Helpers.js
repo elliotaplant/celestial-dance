@@ -37,8 +37,25 @@ const randColor = () => {
   return color;
 }
 
-const merge = () => {
-  console.log('mergine!');
+const merge = (body1, body2) => {
+  // vf = (m1v1 + m2v2) / (m1+m2)
+  // debugger;
+  body1.velocity.multiplyScalar(body1.mass)
+  .add(body2.velocity.multiplyScalar(body2.mass))
+  .multiplyScalar(body1.mass + body2.mass);
+  // mf = m1+m2
+  body1.mass = body1.mass + body2.mass;
+  // rf = massToRadius(mf)
+  body1.radius = massToRadius(body1.mass);
+  // colorF? = get average (color1, color2) (#123 + #777 = #455)
+  // colorF? = get max (color1, color2) (#12B + #777 = #77B),
+  // remove all forces associated with body2
+  window.forces = window.forces.filter(
+    force => force.body1 !== body2 && force.body2 !== body2
+  );
+  // delete body2
+  // body2.parentNode.remove(body2);
+  // move?
 }
 
 export {

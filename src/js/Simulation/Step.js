@@ -61,17 +61,19 @@ AFRAME.registerComponent('step', {
       dancer.mass = +dancer.attributes.mass.value;
       dancer.radius = +dancer.attributes.radius.value;
     });
+    window.forces = [];
     for (var i = 0; i < dancers.length; i++) {
       for (var j = i + 1; j < dancers.length; j++) {
-        this.data.forces.push(new Force(dancers[i], dancers[j]));
+        window.forces.push(new Force(dancers[i], dancers[j]));
       }
     }
+    // window.forces = this.data.forces;
   },
 
   tick: function (dt) {
     dt = dt*TIME_SCALE;
-    for (var i = 0; i < this.data.forces.length; i++) {
-      this.data.forces[i].update().apply(dt);
+    for (var i = 0; i < window.forces.length; i++) {
+      window.forces[i].update().apply(dt);
     }
     const dancers = this.el.sceneEl.querySelectorAll('.dancer');
     for (var i = 0; i < dancers.length; i++) {
