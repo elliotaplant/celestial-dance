@@ -1,12 +1,12 @@
 import { rand, randColor } from './Helpers'
-const baseSpeed = 2e-1;
+const baseSpeed = 8e-1;
 const makeDancer = (mass, position, velocity, color = "#22A") => ({
   mass, position, velocity, color
 });
 const makeRandDancer = () => {
   return makeDancer(
-    rand(100, 1000),
-    [rand(-10, 5), rand(0, 0), rand(-15, -10)],
+    rand(100, 100000),
+    [rand(-10, 10), rand(-10, 10), rand(-50, -20)],
     // [rand(-baseSpeed, baseSpeed), rand(-baseSpeed, baseSpeed), rand(-baseSpeed, baseSpeed)],
     [rand(-baseSpeed, baseSpeed), rand(-baseSpeed, baseSpeed), rand(-baseSpeed, baseSpeed)],
     randColor()
@@ -20,16 +20,23 @@ const dancerData = [
   // makeDancer(100, 2, 0, -5, "../assets/cow_texture.png"),
   // makeDancer(100, -2, 0, -5),
   makeDancer(
+    10000, [0, 2, -40], [0, 0, 0], '#FFF'
+  ),
+  makeDancer(
     1000, [2, 0, -10], [0, baseSpeed, 0], '#F00'
   ),
   makeDancer(
     1000, [-2, 0, -10], [0, -baseSpeed, 0], '#00F'
   ),
   makeRandDancer(),
-  // makeRandDancer(),
-  // makeRandDancer(),
-  // makeRandDancer(),
-  // makeRandDancer(),
+  makeRandDancer(),
+  makeRandDancer(),
+  makeRandDancer(),
+  makeRandDancer(),
+  makeRandDancer(),
+  makeRandDancer(),
+  makeRandDancer(),
+  makeRandDancer(),
 ];
 
 module.exports = dancerData;
