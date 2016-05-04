@@ -1,18 +1,7 @@
-import { rand, randColor } from './Helpers'
-const baseSpeed = 5e0;
-const makeDancer = (mass, position, velocity, color = "#22A") => ({
-  mass, position, velocity, color
-});
-const makeRandDancer = () => {
-  return makeDancer(
-    rand(100, 100000),
-    [rand(-10, 10), rand(-10, 10), rand(-50, -20)],
-    // [rand(-baseSpeed, baseSpeed), rand(-baseSpeed, baseSpeed), rand(-baseSpeed, baseSpeed)],
-    [rand(-baseSpeed, baseSpeed), rand(-baseSpeed, baseSpeed), rand(-baseSpeed, baseSpeed)],
-    randColor()
-  );
-}
-let orbitalSpeed = 1.1;
+import { rand, randColor } from './Helpers';
+import { ORBITAL_SPEED } from './Constants';
+import { makeDancer, makeRandDancer } from './MakeDancers';
+
 let dancerData = [
   // makeDancer(100000, 0, 2, -40),
   // makeDancer(1000, 2, 1.8, -10),
@@ -24,16 +13,16 @@ let dancerData = [
     100000, [0, 2, -40], [0, 0, 0], '#FFF'
   ),
   makeDancer(
-    1000, [20, 2, -40], [0, orbitalSpeed, 0], randColor()
+    1000, [20, 2, -40], [0, ORBITAL_SPEED, 0], randColor()
   ),
   makeDancer(
-    1000, [0, 22, -40], [0, 0, orbitalSpeed], randColor()
+    1000, [0, 22, -40], [0, 0, ORBITAL_SPEED], randColor()
   ),
   makeDancer(
-    1000, [-20, 2, -40], [0, -orbitalSpeed, 0], randColor()
+    1000, [-20, 2, -40], [0, -ORBITAL_SPEED, 0], randColor()
   ),
   makeDancer(
-    1000, [0, -22, -40], [0, 0, -orbitalSpeed], randColor()
+    1000, [0, -22, -40], [0, 0, -ORBITAL_SPEED], randColor()
   ),
   // makeDancer(
   //   1000, [2, 0, -10], [0, baseSpeed, 0], '#F00'
@@ -43,8 +32,8 @@ let dancerData = [
   // ),
   // makeRandDancer(),
   // makeRandDancer(),
-  // makeRandDancer(),
-  // makeRandDancer(),
+  makeRandDancer(),
+  makeRandDancer(),
   // makeRandDancer(),
   // makeRandDancer(),
   // makeRandDancer(),
