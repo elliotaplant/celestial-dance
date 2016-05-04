@@ -9,4 +9,5 @@ export {
   PLANET_SPRING,
   MIN_DISTANCE,
   TIME_SCALE,
+  ORBITAL_SPEED,
 }

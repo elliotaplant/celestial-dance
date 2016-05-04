@@ -1,4 +1,4 @@
-import { rand, randColor } from './Helpers';
+import { randColor } from './Helpers';
 import { ORBITAL_SPEED } from './Constants';
 import { makeDancer, makeRandDancer } from './MakeDancers';
 
@@ -32,8 +32,8 @@ let dancerData = [
   // ),
   // makeRandDancer(),
   // makeRandDancer(),
-  makeRandDancer(),
-  makeRandDancer(),
+  // makeRandDancer(),
+  // makeRandDancer(),
   // makeRandDancer(),
   // makeRandDancer(),
   // makeRandDancer(),
