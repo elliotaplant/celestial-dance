@@ -15,6 +15,17 @@ const makeRandDancer = () => {
   );
 }
 
+const makeOrbitalDancer = (dancer) => {
+  // put in rand position near dancer
+  // the velocity has to be in the plane perpendicular to the
+    // displacement vector
+  // the magnitude of the velocity can be found with r, m1, m2
+  // we could add user interaction this way
+  // the cursor defines a ray, we spawn a planet with initial velocity
+    // along that ray, and position that corresponds to where displacement
+    // is perpendicular to
+}
+
 module.exports = {
   makeDancer, makeRandDancer,
 }
