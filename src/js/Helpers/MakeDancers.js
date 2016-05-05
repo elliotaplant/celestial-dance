@@ -22,7 +22,7 @@ const makeOrbitalDancer = (dancer, sign = 1) => {
   return makeDancer(
     mass,
     [dancer.position[0] + sign * radius, dancer.position[1], dancer.position[2]],
-    [0, 0, sign * velocity],
+    [0, sign * velocity, 0],
     randColor()
   )
   // IDEAL:

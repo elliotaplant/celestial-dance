@@ -13,22 +13,15 @@ import { makeDancer, makeRandDancer, makeOrbitalDancer } from './MakeDancers';
 // ];
 
 // Random orbitals
-const sun = makeDancer(10000, [0, -50, 0], [0, 0, 0], '#FDB813');
-const earth = makeOrbitalDancer(sun);
-const moon = makeOrbitalDancer(earth);
+const sun = makeDancer(10000, [0, 0, -50], [0, 0, 0], '#FDB813');
 const dancerData = [
   sun,
-  // earth,
-  // moon,
   makeOrbitalDancer(sun),
   makeOrbitalDancer(sun),
   makeOrbitalDancer(sun),
   makeOrbitalDancer(sun, -1),
   makeOrbitalDancer(sun, -1),
   makeOrbitalDancer(sun, -1),
-  // makeOrbitalDancer(sun),
-  // makeOrbitalDancer(sun),
-  // makeOrbitalDancer(sun),
 ];
 
 
