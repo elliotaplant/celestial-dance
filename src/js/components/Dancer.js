@@ -6,21 +6,12 @@ import { translate, rand, vLog, objToArr,
 import { getNetAccel } from '../Helpers/AccelerationLogic';
 import Nothing from '../Simulation/Step'
 
-class Dancer extends React.Component {
-  constructor(props) {
-    super(props);
-    this.mass = props.mass || rand(2, 1000);
-  }
-
-  render() {
-    return (
-      <a-sphere color={this.props.color} radius={massToRadius(this.mass)}
-        class='dancer' mass={this.mass} step
-        velocity={this.props.velocity.join(' ')}
-        position={this.props.position.join(' ')}
-      />
-    );
-  }
-}
+const Dancer = (props) => (
+  <a-sphere color={props.color} radius={massToRadius(props.mass)}
+    class='dancer' mass={props.mass} step
+    velocity={props.velocity.join(' ')}
+    position={props.position.join(' ')}
+  />
+);
 
 module.exports = Dancer;
