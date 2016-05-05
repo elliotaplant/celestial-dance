@@ -28,7 +28,7 @@ class SpaceScene extends React.Component {
             color={dancer.color} velocity={dancer.velocity}
           />
         ))}
-        <a-camera id="player" position="0 1.8 0"></a-camera>
+        <a-camera wasd-controls="fly: true" id="player" position="0 1.8 0"></a-camera>
         <a-sky src="#outer-space"></a-sky>
       </Scene>
     )
