@@ -34,7 +34,7 @@ AFRAME.registerComponent('step', {
     // window.forces = this.data.forces;
   },
 
-  tick: function (dt) {
+  tick: function (t, dt) {
     dt = dt*TIME_SCALE;
     for (var i = 0; i < window.forces.length; i++) {
       window.forces[i].update().apply(dt);

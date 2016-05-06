@@ -38,15 +38,16 @@ const randColor = () => {
 }
 
 const merge = (body1, body2) => {
-  // vf = (m1v1 + m2v2) / (m1+m2)
-  // debugger;
-  body1.velocity.multiplyScalar(body1.mass)
-  .add(body2.velocity.multiplyScalar(body2.mass))
-  .multiplyScalar(body1.mass + body2.mass);
   // mf = m1+m2
-  body1.mass = body1.mass + body2.mass;
+  const finalMass = body1.mass + body2.mass;
+  // vf = (m1v1 + m2v2) / (m1+m2)
+  body1.velocity = body1.velocity.multiplyScalar(body1.mass)
+  .add(body2.velocity.multiplyScalar(body2.mass))
+  .multiplyScalar(1 / finalMass);
+
+  body1.mass = finalMass;
   // rf = massToRadius(mf)
-  body1.radius = massToRadius(body1.mass);
+  body1.radius = massToRadius(finalMass);
   // colorF? = get average (color1, color2) (#123 + #777 = #455)
   // colorF? = get max (color1, color2) (#12B + #777 = #77B),
   // remove all forces associated with body2
@@ -54,7 +55,7 @@ const merge = (body1, body2) => {
     force => force.body1 !== body2 && force.body2 !== body2
   );
   // delete body2
-  // body2.parentNode.remove(body2);
+  body2.parentNode.remove(body2);
   // move?
 }
 
