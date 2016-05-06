@@ -12,10 +12,7 @@ import dancerData from './Helpers/dancerData';
 const SpaceScene = () => (
   <Scene>
     <a-assets>
-      <img id="outer-space" src="../assets/equi-sky.png" />
-      <img id="cow" src="../assets/cow_texture.png" />
-      <img id="earth-img" src="../assets/earth.jpg" />
-      <img id="mars-img" src="../assets/mars.png" />
+      <img id="outer-space" crossOrigin src="http://i.imgur.com/gNIwweI.jpg" />
     </a-assets>
     {dancerData.map((dancer, index) => (
       <Dancer key={index} mass={dancer.mass} position={dancer.position}

@@ -15,20 +15,8 @@ const makeRandDancer = () => {
   );
 }
 
-const makeXDancer = () => {};
-const makeYDancer = () => {};
-const makeZDancer = () => {};
-
-const planeToPosition = {
-  x: 1,
-  y: 2,
-  z: 0,
-}
-const planeToVelocity = {
-  x: 2,
-  y: 0,
-  z: 1,
-}
+const planeToPosition = { x: 1, y: 2, z: 0 };
+const planeToVelocity = { x: 2, y: 0, z: 1 };
 const makeOrbitalDancer = (dancer, plane, sign) => {
   const mass = rand(0, dancer.mass/100);
   const orbitRadius = rand(0, dancer.mass/100);
@@ -39,26 +27,26 @@ const makeOrbitalDancer = (dancer, plane, sign) => {
   velocity[planeToVelocity[plane]] = speed;
   return makeDancer(mass, position, velocity, randColor());
 }
-// const makeOrbitalDancer = (dancer, plane, sign = 1) => {
-//   const mass = rand(0, dancer.mass/100);
-//   const orbitRadius = rand(0, dancer.mass/100);
-//   const velocity = Math.sqrt(GRAVITY * (mass + dancer.mass) / orbitRadius);
-//   return makeDancer(
-//     mass,
-//     [dancer.position[0] + sign * orbitRadius, dancer.position[1], dancer.position[2]],
-//     [0, sign * velocity, 0],
-//     randColor()
-//   )
-//   // IDEAL:
-//   // put in rand position near dancer
-//   // the velocity has to be in the plane perpendicular to the
-//     // displacement vector
-//   // the magnitude of the velocity can be found with r, m1, m2
-//   // we could add user interaction this way
-//   // the cursor defines a ray, we spawn a planet with initial velocity
-//     // along that ray, and position that corresponds to where displacement
-//     // is perpendicular to
-// }
+
+class DancerData {
+  constructor(mass, position, velocity, color) {
+      this.mass = mass;
+      this.position = position;
+      this.velocity = velocity;
+      this.color = color;
+  }
+}
+
+const preventOverlappingDancers = (dancersArr) => {
+  for (var i = 0; i < dancersArr.length; i++) {
+    for (var j = 0; j < dancersArr.length; j++) {
+      if (i !== j && overlapping(dancersArr[i], dancersArr[j])) {
+        dancersArr[j].reset();
+        j--;
+      }
+    }
+  }
+}
 
 module.exports = {
   makeDancer, makeRandDancer, makeOrbitalDancer
