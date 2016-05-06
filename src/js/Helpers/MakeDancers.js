@@ -2,8 +2,8 @@ import { rand, randColor } from './Helpers';
 import { GRAVITY } from './Constants';
 const baseSpeed = 11e-1;
 
-const makeDancer = (mass, position, velocity, color = "#22A") => ({
-  mass, position, velocity, color
+const makeDancer = (mass, position, velocity, color, light, material) => ({
+  mass, position, velocity, color, light, material
 });
 
 const makeRandDancer = () => {
@@ -11,7 +11,9 @@ const makeRandDancer = () => {
     rand(100, 1000),
     [rand(-10, 10), rand(-10, 10), rand(-50, -30)],
     [rand(-baseSpeed, baseSpeed), rand(-baseSpeed, baseSpeed), rand(-baseSpeed, baseSpeed)],
-    randColor()
+    randColor(),
+    "",
+    "color: " + randColor()
   );
 }
 

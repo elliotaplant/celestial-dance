@@ -7,10 +7,13 @@ import { getNetAccel } from '../Helpers/AccelerationLogic';
 import Nothing from '../Simulation/Step'
 
 const Dancer = (props) => (
-  <a-sphere color={props.color} radius={massToRadius(props.mass)}
+  <a-sphere radius={massToRadius(props.mass)}
     class='dancer' mass={props.mass} step
     velocity={props.velocity.join(' ')}
     position={props.position.join(' ')}
+    light={props.light}
+    color={props.color}
+    material={props.material}
   />
 );
 
