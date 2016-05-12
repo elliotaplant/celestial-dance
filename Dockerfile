@@ -8,5 +8,5 @@ RUN mkdir -p /app && cp -a /tmp/node_modules /app/
 WORKDIR /app
 ADD . /app
 
-EXPOSE 5555
-CMD ["npm", "run", "serve"]
+EXPOSE 80
+CMD ["npm", "start"]

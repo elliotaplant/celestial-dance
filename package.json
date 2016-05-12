@@ -11,12 +11,10 @@
     "react-dom": "^0.14.3"
   },
   "scripts": {
-    "build": "webpack",
-    "preghpages": "npm run build && rm -rf gh-pages && cp -r src gh-pages && cp index.html build/bundle.js gh-pages",
-    "ghpages": "npm run preghpages && ghpages -p gh-pages",
-    "gh-pages": "npm run ghpages",
-    "serve": "cd src && python -m SimpleHTTPServer 5555",
-    "serve-js": "webpack-dev-server --content-base src --progress --watch --history-api-fallback --inline --hot"
+    "build": "docker build -t celestial",
+    "start": "webpack --watch & nodemon server.js",
+    "deploy": "docker run -d -p 80:80 -e NODE_ENV='production' -e PORT=80 celestial"
+
   },
   "repository": {
     "type": "git",
