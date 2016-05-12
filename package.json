@@ -5,6 +5,8 @@
   "dependencies": {
     "aframe": "^0.2.0",
     "babel-polyfill": "^6.3.14",
+    "express": "^4.13.4",
+    "html-webpack-plugin": "^2.16.1",
     "react": "^0.14.3",
     "react-dom": "^0.14.3"
   },
