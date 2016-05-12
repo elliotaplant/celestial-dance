@@ -54,12 +54,9 @@ const overlapping = (dancer1, dancer2) => (
 );
 
 const preventOverlappingDancers = (dancersArr) => {
-  console.log('running preventOverlappingDancers');
   for (var i = 0; i < dancersArr.length; i++) {
     for (var j = i + 1; j < dancersArr.length; j++) {
-      console.log('checking');
       if (overlapping(dancersArr[i], dancersArr[j])) {
-        console.log('found one');
         dancersArr[j].position = dancersArr[j].position.map(element => element * 1.1);
         j--;
       }
