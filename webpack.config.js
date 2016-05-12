@@ -8,7 +8,7 @@ var path = require('path');
 
 module.exports = {
  entry: [
-   './src/app.js'
+   './src/js/app.js'
  ],
  output: {
    filename: 'index_bundle.js',
