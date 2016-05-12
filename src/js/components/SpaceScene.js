@@ -1,3 +1,4 @@
+import React from 'react';
 import Dancer from './Dancer';
 import dancerData from '../Helpers/dancerData';
 import { massToRadius } from '../Helpers/Helpers';
