@@ -1,5 +1,4 @@
 import 'aframe';
-import {Animation, Entity} from 'aframe-react';
 import React from 'react';
 import { translate, rand, vLog, objToArr, getR,
   massToRadius, merge } from '../Helpers/Helpers';
