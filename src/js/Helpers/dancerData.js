@@ -1,6 +1,8 @@
 import { randColor } from './Helpers';
 import { ORBITAL_SPEED } from './Constants';
-import { makeDancer, makeRandDancer, makeOrbitalDancer } from './MakeDancers';
+import { makeDancer, makeRandDancer, makeOrbitalDancer,
+  preventOverlappingDancers
+} from './MakeDancers';
 
 // Random orbitals
 const sun = makeDancer(10000, [0, 0, -50], [0, 0, 0],
@@ -30,6 +32,6 @@ const dancerData = [
   makeOrbitalDancer(sun, 'z', -1),
 ];
 
-
+preventOverlappingDancers(dancerData);
 
 module.exports = dancerData;

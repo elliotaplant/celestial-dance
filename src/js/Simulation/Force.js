@@ -17,7 +17,7 @@ class Force {
     if (this.distance < MIN_DISTANCE) {
     } else if (distance < this.body1.radius + this.body2.radius) {
       // merge(this.body1, this.body2);
-      // bounce wit it
+      console.log('bounce wit it');
       this.vector.add(
         displacement2.multiplyScalar(
           PLANET_SPRING * (1 - (this.body1.radius + this.body2.radius) / distance)
