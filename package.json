@@ -12,8 +12,9 @@
   },
   "scripts": {
     "build": "docker build -t celestial .",
-    "start": "webpack --watch & nodemon server.js",
-    "deploy": "docker run -d -p 80:80 -e NODE_ENV='production' -e PORT=80 celestial"
+    "start": "webpack & node server.js",
+    "start-dev": "webpack --watch & nodemon server.js",
+    "deploy": "npm run build && docker run -d -p 80:80 -e NODE_ENV='production' -e PORT=80 celestial"
   },
   "repository": {
     "type": "git",
