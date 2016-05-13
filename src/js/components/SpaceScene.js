@@ -6,7 +6,7 @@ import { massToRadius } from '../Helpers/Helpers';
 const SpaceScene = () => (
   <a-scene>
     <a-assets>
-      <img id="outer-space" src="../../assets/spaceSky.jpg" />
+      <img id="outer-space" src="./spaceSky.jpg" />
     </a-assets>
     {dancerData.map((dancer, index) => (
         <Dancer key={index} mass={dancer.mass} position={dancer.position}
