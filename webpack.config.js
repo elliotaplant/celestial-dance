@@ -19,9 +19,11 @@ module.exports = {
  devtool: 'source-map',
  module: {
    loaders: [
+     {test: /\.js$/, include: __dirname + '/src/js', loader: 'babel-loader'},
      {
-       test: /\.js$/, include: __dirname + '/src/js', loader: 'babel-loader'
-     }
+   test: /\.(png|jpg|gif)$/,
+   loader: "file-loader?name=img/img-[hash:6].[ext]"
+ }
    ]
  },
  plugins: [HTMLWebpackPluginConfig]

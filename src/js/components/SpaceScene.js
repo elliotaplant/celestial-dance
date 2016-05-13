@@ -2,11 +2,12 @@ import React from 'react';
 import Dancer from './Dancer';
 import dancerData from '../Helpers/dancerData';
 import { massToRadius } from '../Helpers/Helpers';
+const space = require('./spaceSky.jpg');
 
 const SpaceScene = () => (
   <a-scene>
     <a-assets>
-      <img id="outer-space" src="./spaceSky.jpg" />
+      <img id="outer-space" src={space} />
     </a-assets>
     {dancerData.map((dancer, index) => (
         <Dancer key={index} mass={dancer.mass} position={dancer.position}
