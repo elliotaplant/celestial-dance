@@ -15,7 +15,8 @@ const SpaceScene = () => (
         />
       )
     )}
-    <a-camera wasd-controls="fly: true" id="player" position="0 1.8 0" />
+    <a-camera wasd-controls="acceleration: 1000; fly: true; easing: 3"
+      id="player" position="0 1.8 0" />
     <a-sky src="#outer-space" material="shader: flat"/>
     <a-entity light="type: ambient; color: #555"></a-entity>
   </a-scene>
