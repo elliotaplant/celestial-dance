@@ -38,15 +38,13 @@ const Dancer = (props) => {
           color={props.color}
           material={props.material}
         />
-        {range(50).map((_, index, collection) => {
-          console.log('index', index);
-          return (
+        {range(50).map((_, index, collection) => (
           <a-sphere
             key={index}
             radius={massToRadius(props.mass) * (1 + lightDecay * index / collection.length)}
             material={`opacity: ${1 - index / collection.length}; color: white; side: back`}
           />
-        )})}
+        ))}
       </a-entity>
     );
   }
