@@ -7,7 +7,7 @@ import { makeDancer, makeRandDancer, makeOrbitalDancer,
 // Random orbitals
 const sun = makeDancer(10000, [0, 0, -25], [0, 0, 0],
   "color: #FFC823; distance: 5000; intensity: 2; type: point",
-  "color: #FFC823; shader: flat; metalness: 0.8"
+  "color: #FFD833; shader: flat; metalness: 0.8"
 );
 
 const dancerData = [
