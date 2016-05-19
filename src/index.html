@@ -24,34 +24,7 @@
 </head>
 
 <body>
-  <input type="checkbox" id="drawer-toggle" name="drawer-toggle"/>
-  <label for="drawer-toggle" id="drawer-toggle-label"></label>
-  <div id="drawer">
-    <u><h1>Controls</h1></u>
-    <p>Walk with WASD buttons.</p>
-    <p>Jump with Spacebar.</p>
-    <p>Paint/Sculpt by holding left mouse button.</p>
-
-    <br>
-
-    <p>Made by Elliot Plant</p>
-    <p>Currently a work in Progress!</p>
-    <p><a href="aframe.io">Framework by A-Frame</a></p>
-    Powered by three.js and canon.js with some of my custom made components. It also features <a href="https://github.com/donmccurdy/aframe-extras">@donmccurdy's A-Frame extras </a>with collaboration by the A-Frame community.</p>
-
-    <form id="attributes">
-      <p>To change brush input:</p>
-
-      <p> color: </p>
-      <input id="colorid" type="text" name="colors"> <p>(default value: grey) </p>
-
-      <input type="button" value="Submit" onclick="changeObject();">
-
-
-    </form>
-
-  </div>
-
+  <div class="sidebar-container" />
   <div class="scene-container"></div>
 </body>
 </html>
