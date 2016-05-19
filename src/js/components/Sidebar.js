@@ -3,7 +3,7 @@ import React from 'react';
 const Sidebar = () => (
   <div>
     <input type="checkbox" id="drawer-toggle" name="drawer-toggle"/>
-    <label for="drawer-toggle" id="drawer-toggle-label"></label>
+    <label htmlFor="drawer-toggle" id="drawer-toggle-label"></label>
     <div id="drawer">
       <h1>Controls</h1>
       <h3>Desktop</h3>
@@ -12,7 +12,7 @@ const Sidebar = () => (
       <h3>Mobile</h3>
       <p>Use your phone as a window into space!</p>
       <p>Press the VR button in the bottom left to enter VR mode</p>
-      <br>
+      <br/>
       <p>Made by Elliot Plant</p>
       <p>Currently a work in Progress</p>
       <p><a href="https://elliotplant.wordpress.com/">My Blog</a></p>
@@ -22,4 +22,6 @@ const Sidebar = () => (
       <p><a href="aframe.io">Framework by A-Frame</a></p>
     </div>
   </div>
-)
+);
+
+module.exports = Sidebar;
