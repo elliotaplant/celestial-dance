@@ -4,6 +4,7 @@
   "description": "Celestial Body simulation using A-Frame (VR) with React.",
   "dependencies": {
     "aframe": "^0.2.0",
+    "aframe-extras": "^1.15.1",
     "babel-polyfill": "^6.3.14",
     "express": "^4.13.4",
     "file-loader": "^0.8.5",
