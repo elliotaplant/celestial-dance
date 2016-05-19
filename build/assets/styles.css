@@ -123,13 +123,25 @@ body {
 #drawer a {
   color: #999;
   text-decoration: none;
-  margin-right: 20px;
 }
 
 #drawer a:hover {
   color: white;
 }
 /* Responsive MQ */
+
+#drawer h3 {
+  margin-top: 25px;
+  margin-bottom: 2px;
+}
+
+#drawer p {
+  margin: 2px;
+}
+
+#drawer div {
+  margin: 0px;
+}
 
 @media all and (max-width:350px) {
   #drawer-toggle:checked ~ #drawer-toggle-label {
