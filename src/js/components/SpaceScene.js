@@ -10,7 +10,7 @@ const SpaceScene = () => (
     </a-assets>
     {dancerData.map((dancer, index) => (
         <Dancer key={index} mass={dancer.mass} position={dancer.position}
-           velocity={dancer.velocity}
+           velocity={dancer.velocity} sun={dancer.sun}
            light={dancer.light} material={dancer.material}
         />
       )
