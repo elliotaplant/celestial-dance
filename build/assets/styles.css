@@ -35,7 +35,7 @@ body {
 #drawer h1 {
   font-size: 1.5em;
   padding: 0.5em 0;
-  color: white;
+  color: #999;
 }
 
 #drawer p {
@@ -123,6 +123,7 @@ body {
 #drawer a {
   color: #999;
   text-decoration: none;
+  margin-right: 20px;
 }
 
 #drawer a:hover {
