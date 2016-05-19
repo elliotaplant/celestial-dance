@@ -2,7 +2,7 @@ import React from 'react';
 
 const Sidebar = () => (
   <div>
-    <input type="checkbox" id="drawer-toggle" name="drawer-toggle"/>
+    <input type="checkbox" checked id="drawer-toggle" name="drawer-toggle"/>
     <label htmlFor="drawer-toggle" id="drawer-toggle-label"></label>
     <div id="drawer">
       <h1>Controls</h1>
@@ -11,7 +11,8 @@ const Sidebar = () => (
       <p>Use the mouse to look around</p>
       <h3>Mobile</h3>
       <p>Use your phone as a window into space!</p>
-      <p>Press the VR button in the bottom left to enter VR mode</p>
+      <p>Press the VR button in the bottom left to enter VR mode with
+        <a href="http://tinyurl.com/jegsfu9"> google cardboard</a></p>
       <br/>
       <p>Made by Elliot Plant</p>
       <p>Currently a work in Progress</p>
