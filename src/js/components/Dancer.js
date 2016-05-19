@@ -4,6 +4,13 @@ import { translate, rand, vLog, objToArr,
 import { getNetAccel } from '../Helpers/AccelerationLogic';
 import Nothing from '../Simulation/Step'
 const lightDecay = 0.5;
+
+function range(n) {
+  let result = [];
+  while (result.length < n) {result.push(result.length)}
+  return result;
+}
+
 const Dancer = (props) => {
   if (!props.sun) {
     return (
@@ -31,13 +38,12 @@ const Dancer = (props) => {
           color={props.color}
           material={props.material}
         />
-        {[0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15].map((_, index, collection) => {
+        {range(50).map((_, index, collection) => {
           console.log('index', index);
           return (
           <a-sphere
             key={index}
             radius={massToRadius(props.mass) * (1 + lightDecay * index / collection.length)}
-
             material={`opacity: ${1 - index / collection.length}; color: white; side: back`}
           />
         )})}
