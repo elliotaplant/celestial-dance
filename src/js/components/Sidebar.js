@@ -8,18 +8,14 @@ const Sidebar = () => (
       <h1>Controls</h1>
       <div>
         <h3>Desktop</h3>
-        <p>
-          Fly around with WASD keys
-        </p>
-        <p>
-          Use the mouse to look around
-        </p>
+        <p>Fly around with WASD keys</p>
+        <p>Use the mouse to look around</p>
       </div>
       <div>
         <h3>Mobile </h3>
-        <p>Use your phone as a window into space!</p>
-        <p>
-          Press the VR button in the bottom right to enter VR mode with
+        <p>Use your phone as a window into space</p>
+        <p>For the best experience, add this page to your homescreen (<a href="http://www.ianswerguy.com/add-website-icon-to-home-screen/">iPhone</a>, <a href="http://www.howtogeek.com/196087/how-to-add-websites-to-the-home-screen-on-any-smartphone-or-tablet/">Android</a>)</p>
+        <p>Press the VR button in the bottom right to enter VR mode with
           <a href="http://tinyurl.com/jegsfu9"> google cardboard </a>
         </p>
       </div>
