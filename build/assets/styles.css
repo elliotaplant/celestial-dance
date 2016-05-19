@@ -28,7 +28,8 @@ we're going to style the label instead */
 body {
   padding-top:44px;
   line-height: 1.5em;
-  font-family: Open Sans, non-serif;
+  font-family: Lato, Open Sans, non-serif;
+  font-weight: 300;
   color: #666;
 }
 #drawer h1 {
