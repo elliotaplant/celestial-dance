@@ -6,6 +6,7 @@ const Sidebar = () => (
     <label htmlFor="drawer-toggle" id="drawer-toggle-label"></label>
     <div id="drawer">
       <h1>Controls</h1>
+      <img src='./assets/x-icons.png' />
       <div>
         <h3>Desktop</h3>
         <p>Fly around with WASD keys</p>
