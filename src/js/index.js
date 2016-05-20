@@ -11,6 +11,14 @@ import Sidebar from './components/Sidebar';
 ReactDOM.render(<Sidebar/>, document.querySelector('.sidebar-container'));
 ReactDOM.render(<SpaceScene/>, document.querySelector('.scene-container'));
 
-document.getElementsByTagName('body')[0].onmousedown = () => {
-  const toggleBox = document.getElementById('drawer-toggle').checked = false;
+function hideDrawer() {
+  document.getElementById('drawer-toggle').checked = false;
 }
+
+document.getElementsByTagName('a-scene')[0].onmousedown = hideDrawer;
+
+const closeSidebar = document.getElementById('close-sidebar')
+
+closeSidebar.onmousedown = hideDrawer;
+closeSidebar.onmouseover = () => { closeSidebar.src = 'assets/x-icon-white.png' };
+closeSidebar.onmouseout = () => { closeSidebar.src = 'assets/x-icon-grey.png' };

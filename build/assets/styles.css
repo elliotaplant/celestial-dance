@@ -135,6 +135,12 @@ body {
   margin-bottom: 2px;
 }
 
+#drawer img {
+  height: 1.5em;
+  width: 1.5em;
+  float: right;
+}
+
 #drawer p {
   margin: 2px;
 }

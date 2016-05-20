@@ -5,8 +5,8 @@ const Sidebar = () => (
     <input type="checkbox" defaultChecked id="drawer-toggle" name="drawer-toggle"/>
     <label htmlFor="drawer-toggle" id="drawer-toggle-label"></label>
     <div id="drawer">
-      <h1>Controls</h1>
-      <img src='./assets/x-icons.png' />
+      <h1>Controls<img id='close-sidebar' src='assets/x-icon-grey.png'/></h1>
+
       <div>
         <h3>Desktop</h3>
         <p>Fly around with WASD keys</p>
