@@ -30,7 +30,6 @@ AFRAME.registerComponent('step', {
         window.forces.push(new Force(dancers[i], dancers[j]));
       }
     }
-    // window.forces = this.data.forces;
   },
 
   tick: function (t, dt) {
