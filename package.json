@@ -1,12 +1,12 @@
 {
   "name": "celestial-dance",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "Celestial Body simulation using A-Frame (VR) with React.",
+  "author": "Elliot Plant <elliotaplant@gmail.com>",
   "dependencies": {
     "aframe": "^0.2.0",
     "aframe-extras": "^1.15.1",
-    "aframe-gamepad-controls": "^0.4.0",
-    "aframe-keyboard-controls": "^1.0.0",
+    "aframe-keyboard-controls": "git://github.com/elliotaplant/aframe-keyboard-controls.git#master",
     "aframe-proxy-controls": "^0.6.0",
     "babel-polyfill": "^6.3.14",
     "express": "^4.13.4",
