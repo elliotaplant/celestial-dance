@@ -30,12 +30,13 @@ body {
   line-height: 1.5em;
   font-family: Lato, Open Sans, non-serif;
   font-weight: 300;
-  color: #666;
-}
-#drawer h1 {
-  font-size: 1.5em;
-  padding: 0.5em 0;
   color: #999;
+}
+
+#drawer h1 {
+  font-size: 2em;
+  padding: 0.5em 0;
+  color: #ddd;
 }
 
 #drawer p {
@@ -85,7 +86,7 @@ body {
   left: -300px;
   height: 100%;
   width: 300px;
-  background: #2f2f2f;
+  background: #111;
   overflow-x: hidden;
   overflow-y: scroll;
   padding: 20px;
@@ -121,7 +122,7 @@ body {
 }
 
 #drawer a {
-  color: #999;
+  color: #ddd;
   text-decoration: none;
 }
 
@@ -132,7 +133,8 @@ body {
 
 #drawer h3 {
   margin-top: 25px;
-  margin-bottom: 2px;
+  letter-spacing: 2.5px;
+  font-size: 1.5em;
 }
 
 #drawer img {
@@ -142,7 +144,10 @@ body {
 }
 
 #drawer p {
-  margin: 2px;
+  margin: 8px 0;
+  font-size: 1.3em;
+  padding-left: 22px ;
+  text-indent: -22px ;
 }
 
 #drawer div {
