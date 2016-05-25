@@ -86,7 +86,7 @@ body {
   left: -300px;
   height: 100%;
   width: 300px;
-  background: rgba(30, 30, 30, .7);
+  background: rgba(30, 30, 30, .9);
 
   overflow-x: hidden;
   overflow-y: scroll;
@@ -94,14 +94,9 @@ body {
   -webkit-overflow-scrolling: touch;
 }
 
-/* checked styles (menu open state) */
-/*
-#drawer-toggle:checked ~ #drawer-toggle-label {
-  height: 100%;
-  width: calc(100% - 300px);
-  background: rgba(255, 255, 255, .8);
+.overlay {
+  display: none;
 }
-*/
 
 #drawer-toggle:checked ~ #drawer-toggle-label,
 #drawer-toggle:checked ~ header {
@@ -158,9 +153,11 @@ body {
   display: none;
 }
 
-footer {
-  position: fixed;
-  bottom: 0;
+@media all and (min-width:601px) {
+  footer {
+    position: fixed;
+    bottom: 0;
+  }
 }
 
 @media all and (max-width:600px) {

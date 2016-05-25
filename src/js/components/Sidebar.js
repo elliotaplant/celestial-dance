@@ -18,7 +18,8 @@ const Sidebar = () => (
         <p>Press the VR button in the bottom right to enter VR mode with
           <a href="http://tinyurl.com/jegsfu9"> google cardboard </a>
         </p>
-        <p>Enter your pair-code at <a href="https://proxy-controls.donmccurdy.com/#/connect#%2Fconnect"> pair.elliotplant.com</a> (optional)</p>
+        <p>To fly around, enter your pair-code on a computer at <a href="https://proxy-controls.donmccurdy.com/#/connect#%2Fconnect"> pair.elliotplant.com</a></p>
+        <p id="pair-code">Pair Code: </p>
       </div>
       <footer>
         <div>

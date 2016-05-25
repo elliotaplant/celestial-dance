@@ -27,6 +27,35 @@ function showBurger() {
   hamburgerIcon.style.visibility = 'visible';
 }
 
+function getPairCode(fullText) {
+  var pairCode = '';
+  var betweenQuotes = false;
+  for (var i = 0; i < fullText.length; i++) {
+    if (fullText.charCodeAt(i) === 8221) {
+      betweenQuotes = false;
+    }
+    if (betweenQuotes) {
+      pairCode += fullText[i];
+    }
+    if (fullText.charCodeAt(i) === 8220) {
+      betweenQuotes = true;
+    }
+  }
+  return pairCode;
+}
+
+function findPairCode() {
+  var overlay = document.getElementsByClassName('overlay');
+  if (overlay.length) {
+    var pairCode = getPairCode(overlay[0].textContent);
+    document.getElementById('pair-code').textContent = 'Pair Code: "' + pairCode + '"';
+  } else {
+    setTimeout(findPairCode, 20);
+  }
+}
+
+window.onload = findPairCode;
+
 scene.onmousedown = hideDrawer;
 
 scene.addEventListener('enter-vr', hideBurger, false);
