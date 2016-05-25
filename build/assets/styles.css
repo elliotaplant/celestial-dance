@@ -86,7 +86,8 @@ body {
   left: -300px;
   height: 100%;
   width: 300px;
-  background: #111;
+  background: rgba(30, 30, 30, .7);
+
   overflow-x: hidden;
   overflow-y: scroll;
   padding: 20px;
@@ -132,29 +133,37 @@ body {
 /* Responsive MQ */
 
 #drawer h3 {
-  margin-top: 25px;
-  letter-spacing: 2.5px;
-  font-size: 1.5em;
+  margin-top: 50px;
+  font-weight: 700;
+  color: #eee
 }
 
 #drawer img {
-  height: 1.5em;
-  width: 1.5em;
+  height: 2em;
+  width: 2em;
   float: right;
+  margin-top: 12px;
 }
 
 #drawer p {
-  margin: 8px 0;
+  margin: 10px 0;
   font-size: 1.3em;
-  padding-left: 22px ;
-  text-indent: -22px ;
 }
 
 #drawer div {
   margin: 0px;
 }
 
-@media all and (max-width:350px) {
+#mobile {
+  display: none;
+}
+
+footer {
+  position: fixed;
+  bottom: 0;
+}
+
+@media all and (max-width:600px) {
   #drawer-toggle:checked ~ #drawer-toggle-label {
     height: 100%;
     width: 50px;
@@ -169,5 +178,11 @@ body {
   }
   #drawer-toggle:checked ~ #page-content {
     margin-left: calc(100% - 50px);
+  }
+  #desktop {
+    display: none;
+  }
+  #mobile {
+    display: inline;
   }
 }
