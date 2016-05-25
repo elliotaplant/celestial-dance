@@ -39,10 +39,6 @@ body {
   color: #ddd;
 }
 
-#drawer p {
-  margin: 1em 0;
-}
-
 #drawer-toggle {
   position: absolute;
   opacity: 0;
@@ -124,6 +120,7 @@ body {
 
 #drawer a:hover {
   color: white;
+  text-shadow: 0 0 2px #fff;
 }
 /* Responsive MQ */
 
@@ -149,7 +146,7 @@ body {
   margin: 0px;
 }
 
-#mobile {
+.mobile {
   display: none;
 }
 
@@ -176,10 +173,13 @@ body {
   #drawer-toggle:checked ~ #page-content {
     margin-left: calc(100% - 50px);
   }
-  #desktop {
+  .desktop {
     display: none;
   }
-  #mobile {
+  .mobile {
     display: inline;
+  }
+  #drawer p {
+    margin: 2em 0;
   }
 }
