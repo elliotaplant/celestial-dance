@@ -10,14 +10,14 @@ const Sidebar = () => (
       <div className="desktop">
         <p>Fly around with WASD or arrow keys</p>
         <p>Click and drag the mouse to look around</p>
-        <p>Try using a mobile device for Virtual Reality experience</p>
+        <p>Try using a mobile device for a virtual reality experience</p>
         <p>Use your keyboard to control your phone at<a href="https://proxy-controls.donmccurdy.com/#/connect#%2Fconnect"> pair.elliotplant.com</a></p>
       </div>
       <div className="mobile">
-        <p>To enter full-screen mode, add this page to your homescreen (<a href="http://www.ianswerguy.com/add-website-icon-to-home-screen/">iPhone</a>, <a href="http://www.howtogeek.com/196087/how-to-add-websites-to-the-home-screen-on-any-smartphone-or-tablet/">Android</a>)</p>
-        <p>Press the VR button in the bottom right to enter VR mode with<a href="http://tinyurl.com/jegsfu9"> google cardboard </a></p>
         <p>To fly around using the arrow keys on your keyboard as a controller, enter your Pair Code at at pair.elliotplant.com on a computer connected to the same wifi</p>
         <p id="pair-code">Pair Code: </p>
+        <p>To enter full-screen mode, add this page to your homescreen (<a href="http://www.ianswerguy.com/add-website-icon-to-home-screen/">iPhone</a>, <a href="http://www.howtogeek.com/196087/how-to-add-websites-to-the-home-screen-on-any-smartphone-or-tablet/">Android</a>)</p>
+        <p>Press the VR button in the bottom right to enter VR mode with<a href="http://tinyurl.com/jegsfu9"> google cardboard </a></p>
       </div>
       <footer className="desktop">
         <div>
