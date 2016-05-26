@@ -150,13 +150,6 @@ body {
   display: none;
 }
 
-@media all and (min-width:601px) {
-  footer {
-    position: fixed;
-    bottom: 0;
-  }
-}
-
 @media all and (max-width:600px) {
   #drawer-toggle:checked ~ #drawer-toggle-label {
     height: 100%;
