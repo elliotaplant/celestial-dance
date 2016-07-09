@@ -2,6 +2,7 @@
 
 A virtual reality, interactive, celestial body simulation
 Compatible with Google cardboard!
+
 1. Open [celestial.elliotplant.com](celestial.elliotplant.com) on your phone
 2. Open [pair.elliotplant.com](pair.elliotplant.com) on your computer to
 3. Enter the pair code from your phone into the pair-code field on your computers
