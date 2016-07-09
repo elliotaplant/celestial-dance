@@ -1,7 +1,7 @@
 # Celestial Dance
 
-A virtual reality, interactive, celestial body simulation
-Compatible with Google cardboard!
+A virtual reality, interactive, celestial body simulation that is
+compatible with Google cardboard.
 
 1. Open [celestial.elliotplant.com](celestial.elliotplant.com) on your phone
 2. Open [pair.elliotplant.com](pair.elliotplant.com) on your computer to
