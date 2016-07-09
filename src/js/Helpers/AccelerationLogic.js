@@ -1,5 +1,4 @@
-import { translate, rand, vLog, objToArr, getR, copyVector,
-  massToRadius } from './Helpers';
+import { translate, rand, vLog, objToArr, getR, copyVector, massToRadius } from './Helpers';
 import { GRAVITY, PLANET_SPRING, MIN_DISTANCE } from './Constants';
 
 const getGravityAccel = (vR, mass) => {
@@ -21,7 +20,12 @@ const getNetAccel = (originBody, otherBodies) => {
     const vR = getR(originBody, otherBody);
     if (vR.length() > MIN_DISTANCE) {
       if (vR.length() < originBody.radius + otherBody.radius) {
-        netAccel.add(getCollisionAccel(copyVector(vR), originBody.mass, originBody.radius, otherBody.radius));
+        netAccel.add(getCollisionAccel(
+          copyVector(vR),
+          originBody.mass,
+          originBody.radius,
+          otherBody.radius
+        ));
       }
       netAccel.add(getGravityAccel(copyVector(vR), otherBody.mass));
     }
@@ -29,6 +33,4 @@ const getNetAccel = (originBody, otherBodies) => {
   }, new THREE.Vector3());
 };
 
-export {
-  getNetAccel,
-}
+module.exports = { getNetAccel }

@@ -43,5 +43,3 @@ AFRAME.registerComponent('step', {
     }
   }
 });
-
-module.exports = 'hi';

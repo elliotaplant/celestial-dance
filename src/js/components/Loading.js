@@ -1,12 +1,3 @@
-// entity.addEventListener('loaded', function () {
-//      entityRotation = entity.getComputedAttribute('rotation');
-//      entity.setAttribute('rotation', {
-//        x: entityRotation.x + rotation.x,
-//        y: entityRotation.y + rotation.y,
-//        z: entityRotation.z + rotation.z
-//      });
-//    });
-
 import React from 'react';
 import Dancer from './Dancer';
 import dancerData from '../Helpers/dancerData';

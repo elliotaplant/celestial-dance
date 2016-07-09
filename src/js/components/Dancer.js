@@ -1,8 +1,8 @@
 import React from 'react';
-import { translate, rand, vLog, objToArr,
-  massToRadius } from '../Helpers/Helpers';
+import { translate, rand, vLog, objToArr, massToRadius } from '../Helpers/Helpers';
 import { getNetAccel } from '../Helpers/AccelerationLogic';
-import Nothing from '../Simulation/Step'
+import '../Simulation/Step';
+
 const lightDecay = 0.5;
 
 function range(n) {
@@ -50,7 +50,4 @@ const Dancer = (props) => {
   }
 };
 
-// color="#FFF"
-// side="both"
-// opacity="0.1"
 module.exports = Dancer;

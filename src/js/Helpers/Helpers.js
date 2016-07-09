@@ -48,15 +48,13 @@ const merge = (body1, body2) => {
   body1.mass = finalMass;
   // rf = massToRadius(mf)
   body1.radius = massToRadius(finalMass);
-  // colorF? = get average (color1, color2) (#123 + #777 = #455)
-  // colorF? = get max (color1, color2) (#12B + #777 = #77B),
+
   // remove all forces associated with body2
   window.forces = window.forces.filter(
     force => force.body1 !== body2 && force.body2 !== body2
   );
   // delete body2
   body2.parentNode.remove(body2);
-  // move?
 }
 
 export {
